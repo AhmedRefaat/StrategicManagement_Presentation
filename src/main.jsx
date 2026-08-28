@@ -6,11 +6,17 @@ import 'reveal.js/dist/reveal.css';
 import 'reveal.js/dist/theme/white.css';
 import './style.css';
 
+// Vite's BASE_URL already ends with '/'; building paths from it (instead of a
+// literal relative path) keeps them correct both in dev and under a GitHub
+// Pages project subpath, where a plain relative url() inside the bundled CSS
+// would otherwise resolve against assets/ (the CSS file's own folder), not the page.
+const assetBase = `${import.meta.env.BASE_URL}Assets/`;
+
 // All slide content is intentionally kept in this file so future changes are
 // limited to src/main.jsx and src/style.css.
 const slidesMarkup = `
 
-<section class="cover" data-background-image="Assets/Cover_Approved_4K_3840x2160_300DPI.png" data-background-size="cover" data-background-position="center">
+<section class="cover" data-background-image="${assetBase}Cover_Approved_4K_3840x2160_300DPI.png" data-background-size="cover" data-background-position="center">
   <p class="kicker">Strategic Management · MGT532</p><h1>Al Rawae Architectural Company</h1><p class="big">From capability to <span class="accent">controlled, scalable growth</span></p><p class="subtitle">Detailed strategic audit · diagnosis, choice, positioning, and implementation</p>
   <table class="cover-table"><tbody><tr><th>Student</th><td>Fatma Ali Mousa (ID: 252601871)</td></tr><tr><th>Student</th><td>Ahmed Refaat Mousa (ID: 252602038)</td></tr><tr><th>Course</th><td>Strategic Management (MGT532)</td></tr><tr><th>Instructor</th><td>Dr. Safwat Elsharkawi</td></tr></tbody></table>
 </section>
@@ -128,6 +134,8 @@ function Presentation() {
   const timerRef = useRef(null);
 
   useEffect(() => {
+    // CSS can't read import.meta.env, so hand the resolved theme-bg URL to it via a custom property.
+    revealRef.current.style.setProperty('--theme-bg', `url("${assetBase}Theme_Approved_4K_3840x2160_300DPI.png")`);
     const deck = new Reveal(revealRef.current, {
       embedded: false,
       hash: true,
@@ -159,8 +167,8 @@ function Presentation() {
         <div className="slides" dangerouslySetInnerHTML={{ __html: slidesMarkup }} />
       </div>
       <div className="global-drill-hint" ref={hintRef} aria-live="polite" />
-      <img className="brand-logo-left" src="Assets/AR-LOGO%20FINAL.png" alt="Al Rawae Architectural Company" />
-      <img className="brand-logo" src="Assets/logo.png" alt="ESLSCA University" />
+      <img className="brand-logo-left" src={`${assetBase}AR-LOGO%20FINAL.png`} alt="Al Rawae Architectural Company" />
+      <img className="brand-logo" src={`${assetBase}logo.png`} alt="ESLSCA University" />
     </>
   );
 }

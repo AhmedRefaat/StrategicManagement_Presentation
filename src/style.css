@@ -2,8 +2,8 @@
 /* Reveal sizes .reveal against its parent; #root must have real height or the deck collapses to 0 and scales itself off-screen. */
 html,body,#root{height:100%;margin:0}
 /* .backgrounds is Reveal's own full-size layer, painted behind every (transparent-by-default) per-slide background div. */
-/* Relative path (no leading slash): must resolve correctly under a GitHub Pages project subpath, not just at domain root. */
-.reveal .backgrounds{background:url('Assets/Theme_Approved_4K_3840x2160_300DPI.png') center/cover no-repeat,#fff}
+/* --theme-bg is set from main.jsx (resolved against import.meta.env.BASE_URL) so it works under a GitHub Pages subpath. */
+.reveal .backgrounds{background:var(--theme-bg) center/cover no-repeat,#fff}
 /* Sits outside .slides so it never inherits Reveal's slide-scale transform. */
 .brand-logo{position:fixed;top:16px;right:22px;height:32px;width:auto;z-index:35;pointer-events:none;border-radius:4px;box-shadow:0 2px 8px rgba(18,49,74,.18)}
 @media(max-width:900px){.brand-logo{height:24px;top:10px;right:14px}}
