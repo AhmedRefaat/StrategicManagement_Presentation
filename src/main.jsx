@@ -89,13 +89,6 @@ const slidesMarkup = `
 <section><h2>Questions and discussion</h2><p class="big center">Would you prioritize <span class="accent">service formalization</span> first, or use stronger marketing to create demand before formalization?</p><p class="center muted">Use ↓ to revisit evidence in any chapter.</p></section>
 </section>
 
-<section>
-<section data-drilldown="Handover sentence · timing plan"><p class="kicker">Presenter plan</p><h2>One handover, one connected story</h2><div class="grid2"><div class="card"><h3>Ahmed · Chapters 1–4</h3><p>Opening, company foundation, external diagnosis, internal synthesis, and strategy selection.</p><p class="metric">~7 min</p></div><div class="card"><h3>Fatma · Chapters 5–Conclusion</h3><p>Competitive strategy, selected services, implementation, advisor lens, risks, and closing.</p><p class="metric gold">~7 min</p></div></div><p class="small">This allocation prioritizes continuity and one clean handover. If subject ownership is more important, Ahmed can emphasize external analysis and Fatma internal analysis during Q&A.</p></section>
-<section><h2>Handover sentence</h2><p class="quote">“The market offers real growth, but the decisive question is whether Al Rawae is internally ready to capture it. Fatma will now show how the chosen strategy converts the diagnosis into a controlled implementation plan.”</p></section>
-<section><h2>15-minute timing</h2><div class="grid4 small"><div class="card"><h3>Foundation</h3><p>1:00</p></div><div class="card"><h3>External</h3><p>1:40</p></div><div class="card"><h3>Internal</h3><p>1:50</p></div><div class="card"><h3>Choice</h3><p>1:40</p></div><div class="card"><h3>Competition</h3><p>1:10</p></div><div class="card"><h3>Implementation</h3><p>2:35</p></div><div class="card"><h3>Advisor + risk</h3><p>2:10</p></div><div class="card"><h3>Close + buffer</h3><p>1:55</p></div></div><p class="center"><strong>Target rehearsal time: 14:00–14:30</strong></p></section>
-</section>
-
-
 `;
 
 function activateFoundationRotation(deck, timerRef) {
