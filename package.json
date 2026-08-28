@@ -1,0 +1,20 @@
+{
+  "name": "al-rawae-strategic-management-presentation",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --open",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --open"
+  },
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "reveal.js": "5.2.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.1.1",
+    "vite": "8.2.2"
+  }
+}

@@ -1,0 +1,56 @@
+:root{--ink:#17212b;--navy:#12314a;--teal:#0b7d77;--gold:#d39b36;--sand:#f4efe6;--red:#b4473d;--green:#2d7b57;--muted:#667685;--white:#fff}
+/* Reveal sizes .reveal against its parent; #root must have real height or the deck collapses to 0 and scales itself off-screen. */
+html,body,#root{height:100%;margin:0}
+/* .backgrounds is Reveal's own full-size layer, painted behind every (transparent-by-default) per-slide background div. */
+/* Relative path (no leading slash): must resolve correctly under a GitHub Pages project subpath, not just at domain root. */
+.reveal .backgrounds{background:url('Assets/Theme_Approved_4K_3840x2160_300DPI.png') center/cover no-repeat,#fff}
+/* Sits outside .slides so it never inherits Reveal's slide-scale transform. */
+.brand-logo{position:fixed;top:16px;right:22px;height:32px;width:auto;z-index:35;pointer-events:none;border-radius:4px;box-shadow:0 2px 8px rgba(18,49,74,.18)}
+@media(max-width:900px){.brand-logo{height:24px;top:10px;right:14px}}
+/* Al Rawae company mark, opposite corner; already transparent, so no badge chrome. */
+.brand-logo-left{position:fixed;top:12px;left:22px;height:56px;width:auto;z-index:35;pointer-events:none}
+@media(max-width:900px){.brand-logo-left{height:38px;top:8px;left:14px}}
+.reveal{font-family:'Ubuntu Arabic','Ubuntu',Arial,sans-serif;color:var(--ink);font-size:30px}.reveal .slides{text-align:left}.reveal h1,.reveal h2,.reveal h3{font-family:'Ubuntu Arabic','Ubuntu',Arial,sans-serif;font-weight:700;color:var(--navy);text-transform:none;letter-spacing:-.01em}.reveal h1{font-size:2.2em}.reveal h2{font-size:1.55em}.reveal h3{font-size:1.05em}.reveal p,.reveal li{line-height:1.28}.reveal ul{margin-left:1em}.reveal section{padding:18px 28px;box-sizing:border-box}.reveal .progress{color:var(--teal)}.reveal .controls{color:var(--teal)}
+.kicker{color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.55em}.subtitle{font-size:.8em;color:var(--muted)}
+/* No own background here: let the shared .reveal .backgrounds theme image show through, same as every other slide. */
+.hero:after{content:"";position:absolute;right:-8%;top:-15%;width:42%;height:130%;background:linear-gradient(160deg,rgba(11,125,119,.15),rgba(211,155,54,.08));transform:skewX(-10deg);z-index:-1}.big{font-size:1.55em;font-weight:800;color:var(--navy)}.accent{color:var(--teal)}.gold{color:var(--gold)}.red{color:var(--red)}.small{font-size:.67em}.tiny{font-size:.52em}.center{text-align:center}.right{text-align:right}.muted{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:rgba(255,255,255,.94);border:1px solid #dbe3e7;border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(18,49,74,.08)}.card h3{margin:.05em 0 .35em}.card p{margin:.15em 0}.metric{font-size:1.7em;font-weight:850;color:var(--teal)}.metric.gold{color:var(--gold)}.risk{border-left:7px solid var(--red)}.op{border-left:7px solid var(--green)}.insight{border-left:7px solid var(--gold)}
+.bar{height:14px;background:#e5eaed;border-radius:8px;overflow:hidden;margin-top:7px}.bar span{display:block;height:100%;background:var(--teal)}.bar.gold span{background:var(--gold)}.tag{display:inline-block;padding:5px 10px;border-radius:999px;background:#e4f1ef;color:var(--teal);font-size:.55em;font-weight:800;margin:2px}.tag.red{background:#f4e2df;color:var(--red)}.tag.gold{background:#f7ecd6;color:#8e6216}
+.location-tag{display:inline-flex;align-items:center;gap:5px;font-size:.5em;font-weight:700;vertical-align:middle}
+.location-tag svg{flex:none}
+.flow{display:flex;align-items:center;justify-content:center;gap:12px;margin:24px 0}.node{background:var(--navy);color:white;border-radius:14px;padding:15px 18px;text-align:center;min-width:140px;font-weight:700}.arrow{color:var(--gold);font-size:1.4em;font-weight:900}.step{display:flex;gap:16px;align-items:flex-start;margin:14px 0}.num{width:42px;height:42px;border-radius:50%;background:var(--teal);color:white;display:flex;align-items:center;justify-content:center;font-weight:900;flex:none}.quote{font-size:1.2em;font-weight:700;color:var(--navy);border-left:8px solid var(--gold);padding-left:22px}.footer{position:absolute;left:28px;bottom:12px;color:#7d8993;font-size:.4em}.downhint{position:absolute;right:28px;bottom:12px;color:var(--teal);font-size:.42em;font-weight:700}.matrix{display:grid;grid-template-columns:1fr 1fr;gap:12px}.quad{min-height:145px;padding:14px;border-radius:14px;background:#f7f8f8}.q1{border-top:7px solid var(--teal)}.q2{border-top:7px solid var(--gold)}.q3{border-top:7px solid var(--navy)}.q4{border-top:7px solid var(--red)}
+@media(max-width:900px){.reveal{font-size:24px}.grid3,.grid4{grid-template-columns:1fr 1fr}}
+
+/* Cover slide: dark tint over the pale illustration background so the white title/table read clearly.
+   Reveal only auto-sizes a slide's height to its content, so force full bleed explicitly. */
+.cover{height:100%;width:100%;background:linear-gradient(160deg,rgba(10,22,34,.87),rgba(11,58,66,.8));color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px}
+.cover .kicker{color:#8fd8cf}
+.cover h1{color:#fff}
+.cover .big{color:#fff}
+.cover .subtitle{color:#cfe3e8}
+.cover-table{margin-top:26px;border-collapse:collapse;background:rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+.cover-table th,.cover-table td{padding:8px 18px;text-align:left;font-size:.6em;border-bottom:1px solid rgba(255,255,255,.15)}
+.cover-table tr:last-child th,.cover-table tr:last-child td{border-bottom:none}
+.cover-table th{color:#8fd8cf;font-weight:700;white-space:nowrap}
+.cover-table td{color:#fff}
+
+
+/* Horizontal slide 1: timed focus-card sequence */
+.foundation-layout{display:grid;grid-template-columns:47% 53%;gap:34px;align-items:center;margin-top:10px}
+.foundation-profile{padding-right:12px}
+.rotating-stack{height:355px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.focus-card{background:rgba(255,255,255,.96);border:1px solid #dbe3e7;border-radius:15px;padding:10px 18px;box-shadow:0 5px 18px rgba(18,49,74,.07);flex:0 0 52px;overflow:hidden;opacity:.72;transform:translateY(0) scale(.965);transition:flex-basis .65s cubic-bezier(.2,.75,.2,1),transform .65s ease,opacity .45s ease,box-shadow .65s ease,padding .65s ease}
+.focus-card h3{font-size:.82em;margin:0;line-height:1.2;transition:font-size .65s ease,color .35s ease}
+.focus-detail{opacity:0;max-height:0;transform:translateY(18px);transition:opacity .45s ease .05s,max-height .65s ease,transform .65s ease}
+.focus-detail p{font-size:.82em;margin:.7em 0 0}
+.focus-card.is-active{flex-basis:210px;opacity:1;transform:translateY(0) scale(1);padding:22px 24px;box-shadow:0 12px 30px rgba(18,49,74,.13);border-color:#c9dadd}
+.focus-card.is-active h3{font-size:1.08em;color:var(--navy)}
+.focus-card.is-active .focus-detail{opacity:1;max-height:145px;transform:translateY(0);transition-delay:.30s}
+
+/* Consistent drill-down label beside the bottom-right Reveal navigation arrows */
+.global-drill-hint{position:fixed;right:92px;bottom:30px;z-index:40;display:flex;align-items:center;gap:7px;max-width:430px;padding:5px 9px;border-radius:9px;background:rgba(255,255,255,.88);color:var(--teal);font-size:15px;font-weight:800;line-height:1.1;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .25s ease,transform .25s ease;box-shadow:0 3px 12px rgba(18,49,74,.08)}
+.global-drill-hint.is-visible{opacity:1;transform:translateY(0)}
+.drill-arrow{font-size:18px;line-height:1}.drill-label{white-space:nowrap}
+.reveal.has-dark-background~.global-drill-hint{background:rgba(255,255,255,.94)}
+
+@media(max-width:900px){.foundation-layout{grid-template-columns:44% 56%;gap:18px}.rotating-stack{height:330px}.global-drill-hint{right:82px;max-width:320px;font-size:12px}.drill-label{white-space:normal}}
