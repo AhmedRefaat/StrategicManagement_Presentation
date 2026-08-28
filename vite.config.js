@@ -1,29 +1,15 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-export default defineConfig(() => {
-  const repositoryName =
-    process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+export default defineConfig({
+  plugins: [react()],
 
-  const isGitHubPagesBuild =
-    process.env.GITHUB_ACTIONS === "true";
+  // Required because the site is hosted under:
+  // https://ahmedrefaat.github.io/StrategicManagement_Presentation/
+  base: '/StrategicManagement_Presentation/',
 
-  const isUserOrOrganizationSite =
-    repositoryName.endsWith(".github.io");
-
-  const base = isGitHubPagesBuild
-    ? isUserOrOrganizationSite
-      ? "/"
-      : `/${repositoryName}/`
-    : "/";
-
-  return {
-    plugins: [react()],
-    base,
-
-    build: {
-      outDir: "dist",
-      emptyOutDir: true,
-    },
-  };
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+  },
 });
