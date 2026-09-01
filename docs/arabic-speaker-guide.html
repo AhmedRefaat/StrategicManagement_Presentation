@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>arabic-speaker-guide.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*
+
+Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #FFFFFF;
+}
+
+.hljs,
+.hljs-subst {
+  color: #434f54;
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-doctag,
+.hljs-name {
+  color: #00979D;
+}
+
+.hljs-built_in,
+.hljs-literal,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #D35400;
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #00979D;
+}
+
+.hljs-type,
+.hljs-string,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #005C5F;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #880000;
+  font-weight: bold;
+}
+
+.hljs-comment {
+  color: rgba(149,165,166,.8);
+}
+
+.hljs-meta-keyword {
+  color: #728E00;
+}
+
+.hljs-meta {
+  color: #434f54;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-function {
+  color: #728E00;
+}
+
+.hljs-number {
+  color: #8A7B52;  
+}
+
+</style>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family:   "HelveticaNeue-Light", sans-serif, "宋体","Segoe WPC", "Segoe UI", "SFUIText-Light","Droid Sans Fallback";
+	font-size: 18px;
+	padding: 0 12px;
+	line-height: 1.6;
+	word-wrap: break-word;
+	color: #333333;
+}
+
+.content-wrapper{
+	max-width: 860px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+}
+
+
+h2{
+	padding-bottom: .3em;
+    font-size: 2em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+h3{
+	font-size: 1.75em;
+    line-height: 1.225;
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Obsidian syntax defaults for legacy export (PDF / HTML / DOCX) */
+
+.callout {
+	--callout-accent: #0969da;
+	margin: 12px 0;
+	border-radius: 6px;
+	border-left: 4px solid var(--callout-accent);
+	background: rgba(9, 105, 218, 0.08);
+	color: #333333;
+	overflow: hidden;
+}
+
+.callout[data-callout="note"],
+.callout[data-callout="abstract"],
+.callout[data-callout="info"],
+.callout[data-callout="todo"],
+.callout[data-subtype="note"],
+.callout[data-subtype="abstract"],
+.callout[data-subtype="info"],
+.callout[data-subtype="todo"],
+.callout[data-callout="note" i],
+.callout[data-callout="abstract" i],
+.callout[data-callout="info" i],
+.callout[data-callout="todo" i],
+.callout[data-subtype="note" i],
+.callout[data-subtype="abstract" i],
+.callout[data-subtype="info" i],
+.callout[data-subtype="todo" i] {
+	--callout-accent: #0969da;
+	border-left-color: #0969da;
+	background: rgba(9, 105, 218, 0.08);
+}
+
+.callout[data-callout="tip"],
+.callout[data-callout="hint"],
+.callout[data-subtype="tip"],
+.callout[data-subtype="hint"],
+.callout[data-callout="tip" i],
+.callout[data-callout="hint" i],
+.callout[data-subtype="tip" i],
+.callout[data-subtype="hint" i] {
+	--callout-accent: #116329;
+	border-left-color: #116329;
+	background: rgba(17, 99, 41, 0.08);
+}
+
+.callout[data-callout="important"],
+.callout[data-subtype="important"],
+.callout[data-callout="important" i],
+.callout[data-subtype="important" i] {
+	--callout-accent: #8250df;
+	border-left-color: #8250df;
+	background: rgba(130, 80, 223, 0.08);
+}
+
+.callout[data-callout="warning"],
+.callout[data-subtype="warning"],
+.callout[data-callout="warning" i],
+.callout[data-subtype="warning" i] {
+	--callout-accent: #bc4c00;
+	border-left-color: #bc4c00;
+	background: rgba(188, 76, 0, 0.08);
+}
+
+.callout[data-callout="caution"],
+.callout[data-callout="danger"],
+.callout[data-callout="error"],
+.callout[data-callout="bug"],
+.callout[data-callout="fail"],
+.callout[data-subtype="caution"],
+.callout[data-subtype="danger"],
+.callout[data-subtype="error"],
+.callout[data-subtype="bug"],
+.callout[data-subtype="fail"],
+.callout[data-callout="caution" i],
+.callout[data-callout="danger" i],
+.callout[data-callout="error" i],
+.callout[data-callout="bug" i],
+.callout[data-callout="fail" i],
+.callout[data-subtype="caution" i],
+.callout[data-subtype="danger" i],
+.callout[data-subtype="error" i],
+.callout[data-subtype="bug" i],
+.callout[data-subtype="fail" i] {
+	--callout-accent: #cf222e;
+	border-left-color: #cf222e;
+	background: rgba(207, 34, 46, 0.08);
+}
+
+.callout[data-callout="question"],
+.callout[data-callout="help"],
+.callout[data-callout="faq"],
+.callout[data-subtype="question"],
+.callout[data-subtype="help"],
+.callout[data-subtype="faq"],
+.callout[data-callout="question" i],
+.callout[data-callout="help" i],
+.callout[data-callout="faq" i],
+.callout[data-subtype="question" i],
+.callout[data-subtype="help" i],
+.callout[data-subtype="faq" i] {
+	--callout-accent: #9a6700;
+	border-left-color: #9a6700;
+	background: rgba(154, 103, 0, 0.08);
+}
+
+.callout .callout-title,
+.callout .callout-info {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 14px 0;
+	margin-bottom: 10px;
+	color: var(--callout-accent);
+}
+
+.callout .callout-title-icon,
+.callout .callout-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+	color: var(--callout-accent);
+}
+
+.callout .callout-title-icon svg {
+	width: 16px;
+	height: 16px;
+}
+
+.callout .callout-title-inner,
+.callout .callout-info > .callout-title {
+	font-weight: 700;
+	font-size: 0.95em;
+	line-height: 1.35;
+	color: var(--callout-accent);
+}
+
+.callout .callout-content {
+	padding: 6px 14px 12px;
+	color: #333333;
+}
+
+.callout .callout-content > :first-child {
+	margin-top: 0;
+}
+
+.callout .callout-content > :last-child {
+	margin-bottom: 0;
+}
+
+.obsidian-wikilink {
+	color: #7c3aed;
+	text-decoration: underline;
+}
+
+.obsidian-wikilink-embed {
+	display: inline-block;
+	padding: 2px 8px;
+	border: 1px dashed #d0d7de;
+	border-radius: 4px;
+	color: #7c3aed;
+}
+
+.obsidian-tag {
+	color: #7c3aed;
+	background: rgba(124, 58, 237, 0.12);
+	border-radius: 4px;
+	padding: 0 4px;
+}
+
+mark {
+	background: rgba(154, 103, 0, 0.35);
+	color: inherit;
+	padding: 0 2px;
+	border-radius: 2px;
+}
+
+[data-type="yaml-front-matter"] {
+	margin: 0 0 16px;
+}
+
+.vditor-properties {
+	border: 1px solid #d0d7de;
+	border-radius: 8px;
+	background: #f6f8fa;
+	overflow: hidden;
+}
+
+.vditor-properties__heading {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 12px;
+	border-bottom: 1px solid #d0d7de;
+	background: #f3f4f6;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: #6b7280;
+}
+
+.vditor-properties__heading-icon::before {
+	content: "☰";
+	opacity: 0.75;
+}
+
+.vditor-properties__table {
+	display: flex;
+	flex-direction: column;
+}
+
+.vditor-properties__row {
+	display: grid;
+	grid-template-columns: minmax(120px, 34%) 1fr;
+	gap: 8px 12px;
+	align-items: start;
+	padding: 8px 12px;
+	border-top: 1px solid rgba(208, 215, 222, 0.45);
+}
+
+.vditor-properties__row:first-child {
+	border-top: none;
+}
+
+.vditor-properties__key {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	min-width: 0;
+	color: #6b7280;
+	font-size: 0.85rem;
+}
+
+.vditor-properties__key-icon {
+	flex-shrink: 0;
+	width: 14px;
+	height: 14px;
+	opacity: 0.72;
+	text-align: center;
+}
+
+.vditor-properties__key-icon[data-icon="tag"]::before { content: "#"; }
+.vditor-properties__key-icon[data-icon="alias"]::before { content: "⛓"; }
+.vditor-properties__key-icon[data-icon="date"]::before { content: "📅"; }
+.vditor-properties__key-icon[data-icon="toggle"]::before { content: "◉"; }
+.vditor-properties__key-icon[data-icon="number"]::before { content: "#"; }
+.vditor-properties__key-icon[data-icon="list"]::before { content: "≡"; }
+.vditor-properties__key-icon[data-icon="text"]::before { content: "T"; }
+
+.vditor-properties__key-label {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.vditor-properties__value {
+	min-width: 0;
+	font-size: 0.92rem;
+	color: #333333;
+	word-break: break-word;
+}
+
+.vditor-properties__value--tags,
+.vditor-properties__value--aliases {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.vditor-properties__value--aliases {
+	gap: 6px;
+}
+
+.vditor-properties__list {
+	margin: 0;
+	padding-left: 1.1rem;
+}
+
+.vditor-properties__checkbox {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-right: 6px;
+	border: 1px solid #d0d7de;
+	border-radius: 3px;
+	vertical-align: -2px;
+	background: #ffffff;
+}
+
+.vditor-properties__checkbox[is-checked="true"] {
+	background: #7c3aed;
+	border-color: #7c3aed;
+	box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+.vditor-properties__empty {
+	opacity: 0.45;
+}
+
+</style>
+
+<style>
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+.table-of-contents li{
+	list-style-type: initial;
+}
+
+</style>
+
+<style>
+@font-face{font-display:block;font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_AMS-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_AMS-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_AMS-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Caligraphic-Bold.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Caligraphic-Bold.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Caligraphic-Bold.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Caligraphic-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Caligraphic-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Caligraphic-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Fraktur-Bold.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Fraktur-Bold.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Fraktur-Bold.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Fraktur-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Fraktur-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Fraktur-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Bold.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Bold.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Bold.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-BoldItalic.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-BoldItalic.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-BoldItalic.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Italic.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Italic.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Italic.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Main-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Math-BoldItalic.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Math-BoldItalic.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Math-BoldItalic.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Math-Italic.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Math-Italic.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Math-Italic.ttf") format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Bold.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Bold.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Bold.ttf") format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Italic.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Italic.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Italic.ttf") format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_SansSerif-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Script-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Script-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Script-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size1-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size1-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size1-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size2-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size2-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size2-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size3-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size3-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size3-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size4-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size4-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Size4-Regular.ttf") format("truetype")}@font-face{font-display:block;font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Typewriter-Regular.woff2") format("woff2"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Typewriter-Regular.woff") format("woff"),url("https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/fonts/KaTeX_Typewriter-Regular.ttf") format("truetype")}.katex{font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;position:relative;text-indent:0;text-rendering:auto}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.16.47"}.katex .katex-mathml{border:0;-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathboldfrak,.katex .textboldfrak{font-family:KaTeX_Fraktur;font-weight:700}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .mathsfit,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .smash{display:inline;line-height:0}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.2777777778em;margin-right:-.5555555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.1666666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.6666666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.4566666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.1466666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.7142857143em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.8571428571em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.1428571429em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.2857142857em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.4285714286em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.7142857143em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.0571428571em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.4685714286em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.9628571429em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.5542857143em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.7777777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.8888888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.1111111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.3044444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.7644444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.5833333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.7283333333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.0733333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.4861111111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.4402777778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.7277777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.2893518519em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.4050925926em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.462962963em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.5208333333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.2002314815em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.4398148148em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.2410800386em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.2892960463em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.337512054em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.3857280617em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.4339440694em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.4821600771em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.5785920926em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.6943105111em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.8331726133em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.1996142719em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.2009646302em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.2411575563em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.2813504823em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.3215434084em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.3617363344em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.4019292605em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.4823151125em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.578778135em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.6945337621em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.8336012862em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex svg{fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+
+</style>
+<style>
+body {
+    padding-top: 25px;
+}
+</style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1 id="arabic-speaker-guide" tabindex="-1">Arabic Speaker Guide</h1>
+<p>Use these as concise notes, not text to read verbatim. <code>Slide</code> is the Reveal route, for example <code>#/4/2</code>.</p>
+<h2 id="1.-al-rawae-architectural-company" tabindex="-1">1. Al Rawae Architectural Company</h2>
+<p>Slide: <code>#/0</code></p>
+<ol>
+<li>نقدم الروائع المعمارية كشركة متكاملة تربط التصميم والتنفيذ والحلول الذكية وخدمات ما بعد البيع.</li>
+<li>المشكلة ليست نقص الخبرة الفنية، بل تحويلها إلى نمو منظم وقابل للتوسع.</li>
+<li>توصيتنا ليست نمواً سريعاً فقط، بل نمواً مضبوطاً يحمي الجودة والسيولة والسمعة.</li>
+<li>لإقناع الدكتور، نوضح أن العرض ينتقل بمنهجية من التشخيص إلى الاختيار ثم التنفيذ والرقابة.</li>
+</ol>
+<h2 id="2.-al-rawae-architectural-company%3A-from-capability-to-controlled%2C-scalable-growth" tabindex="-1">2. Al Rawae Architectural Company: From Capability to Controlled, Scalable Growth</h2>
+<p>Slide: <code>#/1</code></p>
+<ol>
+<li>لدى الشركة قدرات حقيقية، لكنها تحتاج إلى نظام إداري يدعم التوسع.</li>
+<li>نتيجة EFE البالغة 2.80 تعني استجابة خارجية أعلى من المتوسط.</li>
+<li>نتيجة IFE البالغة 2.60 تعني أن الوضع الداخلي متوسط ويحتاج إلى تطوير تنظيمي.</li>
+<li>لإقناع الدكتور، نوضح أن QSPM بنتيجة 7.13 قادتنا إلى تطوير الخدمات كخيار عملي ومدروس.</li>
+</ol>
+<p><strong>EFE = External Factor Evaluation: تقييم العوامل الخارجية.</strong><br>
+<strong>IFE = Internal Factor Evaluation: تقييم العوامل الداخلية.</strong><br>
+<strong>QSPM = Quantitative Strategic Planning Matrix: مصفوفة التخطيط الاستراتيجي الكمي.</strong></p>
+<h2 id="3.-how-to-navigate-this-deck" tabindex="-1">3. How to Navigate This Deck</h2>
+<p>Slide: <code>#/2</code></p>
+<ol>
+<li>المسار الأفقي هو القصة التنفيذية التي تغطي العرض في نحو خمس عشرة دقيقة.</li>
+<li>المسار الرأسي يحتوي على الأدلة التفصيلية والمصفوفات عند طلب الدكتور.</li>
+<li>هذا التصميم يوازن بين وضوح العرض الرئيسي وعمق التحليل الأكاديمي.</li>
+<li>لإقناع الدكتور، نبيّن أن كل توصية في المسار الرئيسي لها دليل تفصيلي يمكن الرجوع إليه.</li>
+</ol>
+<h2 id="4.-a-young-integrated-company-with-a-broad-service-promise" tabindex="-1">4. A Young Integrated Company with a Broad Service Promise</h2>
+<p>Slide: <code>#/3/0</code></p>
+<ol>
+<li>تأسست الشركة في 2021 وتخدم الأفراد والقطاعين الخاص والعام في مصر والخليج.</li>
+<li>قيمتها الأساسية هي علاقة واحدة من الفكرة والترخيص إلى التنفيذ والدعم بعد البيع.</li>
+<li>التكامل يقلل عبء التنسيق على العميل ويرفع فرصة تحويله إلى خدمات أخرى.</li>
+<li>لإقناع الدكتور، نوضح أن اتساع الخدمات يصبح ميزة فقط عندما تدعمه عمليات ومسؤوليات واضحة.</li>
+</ol>
+<h2 id="5.-company-profile-and-operating-scale" tabindex="-1">5. Company Profile and Operating Scale</h2>
+<p>Slide: <code>#/3/1</code></p>
+<ol>
+<li>لدى الشركة قاعدة تشغيل تقارب 200 عميل وفريقاً أساسياً يتجاوز 25 موظفاً.</li>
+<li>الأرقام بيانات إدارية حتى أغسطس 2026 وليست أرباحاً صافية مدققة.</li>
+<li>استخدمناها كدليل على الحجم والاتجاه، لا كبديل للقوائم المالية المدققة.</li>
+<li>لإقناع الدكتور، نؤكد أن بناء قاعدة بيانات ومؤشرات مالية دقيقة أولوية في الخطة.</li>
+</ol>
+<h2 id="6.-service-portfolio" tabindex="-1">6. Service Portfolio</h2>
+<p>Slide: <code>#/3/2</code></p>
+<ol>
+<li>المحفظة تشمل التصميم والتنفيذ والعقارات والتقنيات الذكية والطاقة وما بعد البيع.</li>
+<li>التنوع يقلل الاعتماد على إيراد واحد لكنه يزيد الحاجة إلى تنسيق أقوى.</li>
+<li>الترخيص والتصميم يمثلان بوابة طبيعية لمشروعات التنفيذ والخدمات اللاحقة.</li>
+<li>لإقناع الدكتور، نقول إن الاستراتيجية تنظّم وتُسعّر خبرات موجودة بالفعل ولا تخترع نشاطاً جديداً.</li>
+</ol>
+<h2 id="7.-vision%2C-mission%2C-and-values" tabindex="-1">7. Vision, Mission, and Values</h2>
+<p>Slide: <code>#/3/3</code></p>
+<ol>
+<li>الرؤية تستهدف مكانة قيادية إقليمية في الحلول الهندسية والعقارية المتكاملة.</li>
+<li>الرسالة تربط بين الفكرة والتنفيذ من خلال حلول هندسية ورقمية متكاملة.</li>
+<li>النزاهة والجودة والابتكار والالتزام بالعميل تدعم التميز عن المنافسة السعرية.</li>
+<li>لإقناع الدكتور، نربط التوصية مباشرة بالرسالة: خدمة متكاملة، جودة قابلة للقياس، ونمو مسؤول.</li>
+</ol>
+<h2 id="8.-an-attractive-market%2C-but-not-an-easy-one" tabindex="-1">8. An Attractive Market, but Not an Easy One</h2>
+<p>Slide: <code>#/4/0</code></p>
+<ol>
+<li>توجد فرص في BIM والذكاء الاصطناعي والمباني الخضراء والطاقة والأنظمة الذكية.</li>
+<li>تضغط تكلفة المواد وسعر الصرف والمنافسة وقوة المشترين على الربحية.</li>
+<li>EFE عند 2.80 من 4 تعني أن استجابة الشركة أعلى من المتوسط.</li>
+<li>لإقناع الدكتور، نؤكد أن فرص السوق لا تجعل التوسع آمناً تلقائياً، لذلك اخترنا نمواً ممولاً مقدماً ومنضبطاً.</li>
+</ol>
+<p><strong>EFE = External Factor Evaluation: تقييم العوامل الخارجية.</strong></p>
+<h2 id="9.-pestel-overview" tabindex="-1">9. PESTEL Overview</h2>
+<p>Slide: <code>#/4/1</code></p>
+<ol>
+<li>يراجع PESTEL البيئة السياسية والاقتصادية والاجتماعية والتكنولوجية والبيئية والقانونية.</li>
+<li>العامل الاقتصادي الأكثر إلحاحاً بسبب التضخم وسعر الصرف وارتفاع تكلفة المدخلات.</li>
+<li>التكنولوجيا فرصة عبر BIM والذكاء الاصطناعي، لكنها تتطلب مهارات وتحديثاً مستمراً.</li>
+<li>لإقناع الدكتور، نوضح أن التسعير والعقود والتمويل صُممت لتستجيب لهذه المخاطر.</li>
+</ol>
+<p><strong>PESTEL = Political, Economic, Social, Technological, Environmental, and Legal: العوامل السياسية والاقتصادية والاجتماعية والتكنولوجية والبيئية والقانونية.</strong></p>
+<h2 id="10.-porter%E2%80%99s-five-forces" tabindex="-1">10. Porter’s Five Forces</h2>
+<p>Slide: <code>#/4/2</code></p>
+<ol>
+<li>شدة المنافسة وقوة المشترين مرتفعتان في السوق.</li>
+<li>قوة الموردين والبدائل ودخول منافسين جدد تقع عند مستوى متوسط.</li>
+<li>لا يمكن للشركة الاعتماد على السعر فقط، لأن ذلك يضغط الهامش والجودة.</li>
+<li>لإقناع الدكتور، نوضح أن التكامل والالتزام والدقة الفنية تستهدف العملاء الذين يقدّرون القيمة لا أقل سعر.</li>
+</ol>
+<p><strong>Porter’s Five Forces = Rivalry, Buyer Power, Supplier Power, Threat of New Entrants, and Threat of Substitutes: شدة المنافسة، قوة المشترين، قوة الموردين، تهديد الداخلين الجدد، وتهديد البدائل.</strong></p>
+<h2 id="11.-competitive-position" tabindex="-1">11. Competitive Position</h2>
+<p>Slide: <code>#/4/3</code></p>
+<ol>
+<li>Telal هو المنافس المباشر الأقرب، بينما تمثل الشركات الأخرى ضغطاً سعرياً أو منافسة مجاورة أو تعاوناً ومنافسة معاً.</li>
+<li>تسجل الروائع 3.70 في CPM مقابل 3.55 لشركة Telal.</li>
+<li>الفارق إيجابي لكنه ضيق، لذلك لا يمثل ميزة محصنة أو دائمة.</li>
+<li>لإقناع الدكتور، نوضح أن تنظيم الخدمة والتسويق وإثبات القيمة سيحول التفوق المحدود إلى موقع أقوى.</li>
+</ol>
+<p><strong>CPM = Competitive Profile Matrix: مصفوفة الملف التنافسي.</strong></p>
+<h2 id="12.-efe%3A-strongest-responses-and-largest-gaps" tabindex="-1">12. EFE: Strongest Responses and Largest Gaps</h2>
+<p>Slide: <code>#/4/4</code></p>
+<ol>
+<li>من أقوى الاستجابات اعتماد BIM والذكاء الاصطناعي والخبرة في التراخيص والالتزام بالكود.</li>
+<li>أكبر الفجوات هي اضطراب أسعار المواد وسعر الصرف وارتفاع تكلفة الإنشاء.</li>
+<li>هذا يفسر لماذا لا نوصي بالتزام رأسمالي كبير في هذه المرحلة.</li>
+<li>لإقناع الدكتور، نوضح أن تطوير الخدمات الاستشارية أقل تعرضاً لتقلبات المواد من التنفيذ الثقيل.</li>
+</ol>
+<p><strong>EFE = External Factor Evaluation: تقييم العوامل الخارجية.</strong></p>
+<h2 id="13.-technically-strong%2C-organizationally-less-mature" tabindex="-1">13. Technically Strong, Organizationally Less Mature</h2>
+<p>Slide: <code>#/5/0</code></p>
+<ol>
+<li>الشركة قوية في التراخيص والتنفيذ وBIM والموثوقية والعلاقات والانضباط المالي.</li>
+<li>لكنها تحتاج إلى وضوح في الصلاحيات والتسويق والسيولة وأنظمة الأداء والتقارير.</li>
+<li>المنتج الفني أنضج من النظام الإداري الذي يحيط به.</li>
+<li>لإقناع الدكتور، نؤكد أن الاستراتيجية تبدأ بالتنظيم والقياس قبل التوسع، ولذلك هي قابلة للتنفيذ.</li>
+</ol>
+<h2 id="14.-managerial-functions%3A-polc" tabindex="-1">14. Managerial Functions: POLC</h2>
+<p>Slide: <code>#/5/1</code></p>
+<ol>
+<li>يقيس POLC التخطيط والتنظيم والقيادة والرقابة.</li>
+<li>الرقابة هي المجال الأضعف نسبياً، بينما تحتاج المجالات الأخرى إلى رسمية أكبر.</li>
+<li>غموض التنسيق والسلطة أعراض لمشكلة نظام إداري واحد.</li>
+<li>لإقناع الدكتور، نربط الخطة بمسؤولين واضحين ومراجعات دورية ومؤشرات أداء.</li>
+</ol>
+<p><strong>POLC = Planning, Organizing, Leading, and Controlling: التخطيط والتنظيم والقيادة والرقابة.</strong></p>
+<h2 id="15.-functional-area-assessment" tabindex="-1">15. Functional-Area Assessment</h2>
+<p>Slide: <code>#/5/2</code></p>
+<ol>
+<li>الإنتاج والموارد البشرية أقوى نسبياً من التسويق والبحث والتطوير والمالية.</li>
+<li>التسويق هو الأضعف، رغم وجود خدمات فنية ذات قيمة قوية.</li>
+<li>لا تحتاج الشركة إلى اختراع قيمة جديدة، بل إلى إظهار وتسويق القيمة الموجودة بصورة منظمة.</li>
+<li>لإقناع الدكتور، نوضح أن الحزم المدفوعة تجعل الخدمة أسهل للتسويق والشراء والقياس.</li>
+</ol>
+<h2 id="16.-vrio%3A-what-is-truly-defensible%3F" tabindex="-1">16. VRIO: What Is Truly Defensible?</h2>
+<p>Slide: <code>#/5/3</code></p>
+<ol>
+<li>يحدد VRIO الموارد التي تمنح الشركة ميزة تنافسية مستدامة.</li>
+<li>معرفة التراخيص والعلاقات مع الجهات الرسمية هي الميزة الأكثر قابلية للدفاع.</li>
+<li>BIM والذكاء الاصطناعي ميزة مؤقتة لأن المنافسين يمكنهم تقليدها.</li>
+<li>لإقناع الدكتور، نؤكد أن التنظيم الداخلي هو ما يحول المورد إلى ميزة مستدامة.</li>
+</ol>
+<p><strong>VRIO = Valuable, Rare, Inimitable, and Organized: قيّم، نادر، صعب التقليد، ومنظم.</strong></p>
+<h2 id="17.-value-chain%3A-the-hidden-growth-engine" tabindex="-1">17. Value Chain: The Hidden Growth Engine</h2>
+<p>Slide: <code>#/5/4</code></p>
+<ol>
+<li>تبدأ سلسلة القيمة بالترخيص ثم التصميم والاستشارات والتنفيذ ثم ما بعد البيع.</li>
+<li>الترخيص يجذب عدداً كبيراً من العملاء، والتنفيذ يمثل أكبر حصة تقديرية من الربح.</li>
+<li>نسبة كبيرة من مشروعات التنفيذ بدأت من خدمة الترخيص بحسب البيانات الإدارية.</li>
+<li>لإقناع الدكتور، نوضح أن رفع التحويل بين الخدمات أهم من زيادة العملاء الجدد فقط.</li>
+</ol>
+<p><strong>Value Chain = سلسلة الأنشطة التي تضيف قيمة من أول تواصل مع العميل إلى الخدمة بعد البيع.</strong></p>
+<h2 id="18.-ife-priorities" tabindex="-1">18. IFE Priorities</h2>
+<p>Slide: <code>#/5/5</code></p>
+<ol>
+<li>يحدد IFE أولويات التحسين الداخلي وفق أوزان نقاط القوة والضعف.</li>
+<li>أكبر نقاط الضعف هي غموض التنسيق وغياب خطة تسويق رسمية وقابلية التوسع والسيولة العاملة.</li>
+<li>من أقوى العوامل التسجيل الرسمي وموثوقية التنفيذ وقدرة BIM والذكاء الاصطناعي.</li>
+<li>لإقناع الدكتور، نوضح أن التوصية تستثمر القوة الفنية وتعالج ضعف التنظيم والتسويق معاً.</li>
+</ol>
+<p><strong>IFE = Internal Factor Evaluation: تقييم العوامل الداخلية.</strong></p>
+<h2 id="19.-controlled-aggressive-growth%2C-not-expansion-at-any-cost" tabindex="-1">19. Controlled Aggressive Growth, Not Expansion at Any Cost</h2>
+<p>Slide: <code>#/6/0</code></p>
+<ol>
+<li>نتيجة SPACE تضع الشركة في اتجاه هجومي، أي أن النمو ممكن ومبرر.</li>
+<li>قرب النتيجة من الأصل يعني أن الوضع لا يسمح بتوسع غير محدود.</li>
+<li>نوصي بنمو انتقائي وقابل للتوسع وممول مقدماً وقليل الاعتماد على الأصول.</li>
+<li>لإقناع الدكتور، نوضح أن الاتجاه الهجومي يعني اقتناص الفرص مع إدارة المخاطر، لا إنفاقاً بلا ضوابط.</li>
+</ol>
+<p><strong>SPACE = Strategic Position and Action Evaluation: تقييم الوضع الاستراتيجي والإجراء.</strong></p>
+<h2 id="20.-tows-logic" tabindex="-1">20. TOWS Logic</h2>
+<p>Slide: <code>#/6/1</code></p>
+<ol>
+<li>يحول TOWS التشخيص الداخلي والخارجي إلى بدائل استراتيجية عملية.</li>
+<li>تستعمل SO القوة لاقتناص الفرص، وتعالج WO الفجوات التنظيمية.</li>
+<li>تحمي ST الوضع التنافسي، وتحد WT من التعرض للمخاطر في البيئة المتقلبة.</li>
+<li>لإقناع الدكتور، نوضح أن التوصية نتيجة منطقية لتقاطع العوامل الأربعة وليست رأياً عاماً.</li>
+</ol>
+<p><strong>TOWS = Threats, Opportunities, Weaknesses, and Strengths: التهديدات والفرص ونقاط الضعف ونقاط القوة.</strong></p>
+<h2 id="21.-space-dimensions" tabindex="-1">21. SPACE Dimensions</h2>
+<p>Slide: <code>#/6/2</code></p>
+<ol>
+<li>القوة المالية +4.83 وقوة القطاع +3.83، ما يشير إلى هوامش وفرص نمو جيدة.</li>
+<li>الميزة التنافسية -2.33 والاستقرار البيئي -3.67 يعكسان ضغط المنافسة والتكاليف والتنظيم.</li>
+<li>للشركة قدرة على التحرك، لكن البيئة لا تسمح بتوسع عشوائي.</li>
+<li>لإقناع الدكتور، نشرح أن النمو المنضبط يوازن بين القوة والضغوط بطريقة كمية لا حدسية.</li>
+</ol>
+<p><strong>SPACE = Strategic Position and Action Evaluation: تقييم الوضع الاستراتيجي والإجراء.</strong></p>
+<h2 id="22.-space-matrix-strategic-position" tabindex="-1">22. SPACE Matrix Strategic Position</h2>
+<p>Slide: <code>#/6/3</code></p>
+<ol>
+<li>موقع الشركة في الربع الهجومي عند النقطة (+1.50، +1.16).</li>
+<li>هذا يدعم تطوير الخدمات واختراق السوق والتوسع المدروس.</li>
+<li>قرب النقطة من الأصل يفرض تمويلاً مقدماً وقدرة تشغيلية مؤكدة قبل التوسع.</li>
+<li>لإقناع الدكتور، نقول إن المصفوفة تحدد شروط النمو السليم ولا تعطي تفويضاً مفتوحاً للنمو.</li>
+</ol>
+<p><strong>SPACE = Strategic Position and Action Evaluation: تقييم الوضع الاستراتيجي والإجراء.</strong></p>
+<h2 id="23.-qspm%3A-choose-a-sequence%2C-not-a-single-forever-strategy" tabindex="-1">23. QSPM: Choose a Sequence, Not a Single Forever Strategy</h2>
+<p>Slide: <code>#/6/4</code></p>
+<ol>
+<li>تقارن QSPM البدائل باستخدام عوامل النجاح الداخلية والخارجية.</li>
+<li>تطوير الخدمات حصل على 7.13، واختراق السوق 6.46، وتطوير الخليج 5.78.</li>
+<li>لا نلغي البدائل الأخرى؛ بل نرتبها: نرسم الخدمة أولاً ثم نسوق ثم نتوسع.</li>
+<li>لإقناع الدكتور، نوضح أن هذا التسلسل يقلل المخاطرة قبل التزامنا بسوق أو قدرة أكبر.</li>
+</ol>
+<p><strong>QSPM = Quantitative Strategic Planning Matrix: مصفوفة التخطيط الاستراتيجي الكمي.</strong></p>
+<h2 id="24.-compete-on-integrated-value%2C-not-the-lowest-price" tabindex="-1">24. Compete on Integrated Value, Not the Lowest Price</h2>
+<p>Slide: <code>#/7/0</code></p>
+<ol>
+<li>الاستراتيجية التجارية هي التميز الواسع، لا المنافسة على أقل سعر.</li>
+<li>القيمة للعميل تأتي من التخصيص والتكامل والالتزام والموثوقية والدعم.</li>
+<li>السعر الأقل قد يفوز بعقد سريع، لكنه لا يحمي الهامش ولا يعكس القيمة الفعلية.</li>
+<li>لإقناع الدكتور، نوضح أن العميل يدفع لتقليل أخطاء التنسيق والمخاطر التنظيمية وضمان الاستمرارية الفنية.</li>
+</ol>
+<h2 id="25.-why-differentiation-fits" tabindex="-1">25. Why Differentiation Fits</h2>
+<p>Slide: <code>#/7/1</code></p>
+<ol>
+<li>التميز يمنح العميل تنسيقاً أسهل وحلولاً مخصصة وتقليل المخاطر التنظيمية واستمرارية فنية.</li>
+<li>لا ينبغي منافسة الشركات غير الرسمية في السعر لأن نموذج أعمال الروائع أعلى قيمة وجودة.</li>
+<li>BIM والذكاء الاصطناعي لا يكفيان كادعاء؛ يجب تحويلهما إلى نتائج ملموسة للعميل.</li>
+<li>لإقناع الدكتور، نوضح أن التميز يقاس بوقت التنفيذ والجودة ورضا العميل ونسبة التحويل.</li>
+</ol>
+<h2 id="26.-bcg-portfolio" tabindex="-1">26. BCG Portfolio</h2>
+<p>Slide: <code>#/7/2</code></p>
+<ol>
+<li>التصميم والترخيص نجوم تحتاج إلى حماية واستثمار.</li>
+<li>التنفيذ علامة استفهام ذات ربح محتمل لكنها تحتاج إلى بناء قدرة انتقائي.</li>
+<li>الاستشارات الفنية بقرة حلوب يمكن تحويلها إلى إيراد من خلال حزم مدفوعة.</li>
+<li>لإقناع الدكتور، نصرح أن التصنيف نوعي بسبب غياب بيانات مدققة عن الحصة السوقية النسبية.</li>
+</ol>
+<p><strong>BCG = Boston Consulting Group Matrix: مصفوفة مجموعة بوسطن الاستشارية.</strong></p>
+<h2 id="27.-turn-existing-expertise-into-two-defined-paid-services" tabindex="-1">27. Turn Existing Expertise into Two Defined Paid Services</h2>
+<p>Slide: <code>#/8/0</code></p>
+<ol>
+<li>نوصي بتحويل الاستشارة ومراجعة التصميم والتعديلات الإضافية إلى خدمتين مدفوعتين.</li>
+<li>لكل خدمة نطاق ومخرجات وسعر ووقت تسليم وحدود تعديلات وطريقة اعتماد.</li>
+<li>هذه الخطوة تحمي الشركة من الاستشارة المجانية وتمدد نطاق المشروع دون مقابل.</li>
+<li>لإقناع الدكتور، نوضح أن الحل يستثمر خبرة موجودة ولا يحتاج بنية تحتية أو رأس مال كبيراً.</li>
+</ol>
+<h2 id="28.-why-this-strategy-ranked-first" tabindex="-1">28. Why This Strategy Ranked First</h2>
+<p>Slide: <code>#/8/1</code></p>
+<ol>
+<li>تطوير الخدمات يحتاج رأس مال محدوداً ويعتمد على مهارات وأدوات موجودة.</li>
+<li>يمكن إطلاقه أسرع من توسع التنفيذ أو دخول أسواق جديدة.</li>
+<li>الدفع المقدم وحماية نطاق العمل يحسنان الانضباط النقدي ويقللان المخاطر.</li>
+<li>لإقناع الدكتور، نوضح أنه يبني بيانات طلب وتكلفة وربحية قبل اتخاذ قرار توسع أكبر.</li>
+</ol>
+<h2 id="29.-strategic-and-annual-objectives" tabindex="-1">29. Strategic and Annual Objectives</h2>
+<p>Slide: <code>#/8/2</code></p>
+<ol>
+<li>عام 2026 لإعادة بناء خط الأساس من الفواتير وسجلات المشروعات.</li>
+<li>هدف 2027 هو نمو الإيراد المجمع 15% عن خط الأساس.</li>
+<li>هدف 2028 هو نمو تراكمي 30% عن 2026، وليس 30% إضافية عن 2027.</li>
+<li>لإقناع الدكتور، نؤكد أن الأهداف محددة زمنياً وقابلة للقياس ومرتبطة ببيانات فعلية.</li>
+</ol>
+<h2 id="30.-2027-action-plan" tabindex="-1">30. 2027 Action Plan</h2>
+<p>Slide: <code>#/8/3</code></p>
+<ol>
+<li>بحلول 31 مارس، نحدد النطاق والاستثناءات والسعر والدفع والعقود.</li>
+<li>بحلول 30 يونيو، نطلق الخدمة ونربطها بالعروض والعقود والفواتير والتواصل.</li>
+<li>بحلول 31 يوليو، نشغل لوحة متابعة شهرية ومراجعة ربع سنوية.</li>
+<li>لإقناع الدكتور، نوضح أن كل خطوة لها تاريخ ومخرج واضح يمكن مساءلة الإدارة عنه.</li>
+</ol>
+<h2 id="31.-2028-action-plan" tabindex="-1">31. 2028 Action Plan</h2>
+<p>Slide: <code>#/8/4</code></p>
+<ol>
+<li>يبدأ 2028 بمراجعة الطلب والتكلفة والتسعير وملاحظات العملاء ومشكلات 2027.</li>
+<li>بعد التحسين، نوسع التواصل إلى الأفراد المؤهلين والمقاولين والشركات وشبكات الإحالة.</li>
+<li>الهدف هو نمو تراكمي لا يقل عن 30% فوق خط أساس 2026.</li>
+<li>لإقناع الدكتور، نوضح أن التوسع يأتي بعد التعلم والتحسين وليس قبله.</li>
+</ol>
+<h2 id="32.-departmental-ownership-and-kpis" tabindex="-1">32. Departmental Ownership and KPIs</h2>
+<p>Slide: <code>#/8/5</code></p>
+<ol>
+<li>التصميم مسؤول عن تعريف الحزمة والجودة ووقت التسليم والتحسين الفني.</li>
+<li>المالية مسؤولة عن خط الأساس والتسعير والتصنيف ولوحة المتابعة.</li>
+<li>الإدارة وعلاقات العملاء مسؤولتان عن المستندات والإطلاق والتواصل وتسجيل الاستفسارات.</li>
+<li>لإقناع الدكتور، نؤكد أن KPI تحول الاستراتيجية من شعار إلى مسؤوليات وأرقام ومراجعة تصحيحية.</li>
+</ol>
+<p><strong>KPI = Key Performance Indicator: مؤشر الأداء الرئيسي.</strong></p>
+<h2 id="33.-contingency-plan" tabindex="-1">33. Contingency Plan</h2>
+<p>Slide: <code>#/8/6</code></p>
+<ol>
+<li>يبدأ الإجراء عند ظهور مراجعتين شهريتين متتاليتين أدنى من مسار الإيراد المطلوب.</li>
+<li>نراجع اعتراضات العملاء، ونوضح القيمة، ونعيد استهداف الشرائح، ثم نحسن نطاق الخدمة.</li>
+<li>لا نعالج ضعف النتائج بخصومات غير منضبطة، بل بدرجات خدمة وأسعار وحدود واضحة.</li>
+<li>لإقناع الدكتور، نوضح أن وجود محفز للاستجابة يجعل الاستراتيجية قابلة للتعلم والتصحيح.</li>
+</ol>
+<h2 id="34.-why-this-case-matters-beyond-one-company" tabindex="-1">34. Why This Case Matters Beyond One Company</h2>
+<p>Slide: <code>#/9/0</code></p>
+<ol>
+<li>هذه الحالة تمثل تحدياً شائعاً للشركات الصغيرة والمتوسطة: النجاح يسبق نضج الإدارة.</li>
+<li>النمو من دون حوكمة وبيانات وسيولة وتسويق قد يحول الفرصة إلى ضغط تشغيلي.</li>
+<li>قيمة الاستشارة الإدارية هي ربط الاختيار الاستراتيجي بالملكية والمؤشرات والإجراءات التصحيحية.</li>
+<li>لإقناع الدكتور، نوضح أن الحل قابل للتعميم على شركات خدمات مشابهة، لكنه مبني على واقع الروائع.</li>
+</ol>
+<h2 id="35.-what-may-interest-a-business-advisor" tabindex="-1">35. What May Interest a Business Advisor</h2>
+<p>Slide: <code>#/9/1</code></p>
+<ol>
+<li>الموضوع الأول هو تحويل النجاح غير الرسمي إلى نظام قابل للتوسع دون قتل السرعة.</li>
+<li>الموضوع الثاني هو التوازن بين فرصة النمو والجاهزية التنظيمية والتمويلية.</li>
+<li>الموضوع الثالث هو تحويل الترخيص والاستشارات والعمل غير المسعر إلى محرك إيراد.</li>
+<li>لإقناع الدكتور، نوضح أن العمل يجيب عملياً عن: من المسؤول؟ ماذا نقيس؟ ومتى نصحح؟</li>
+</ol>
+<h2 id="36.-what-must-be-true-for-the-strategy-to-work%3F" tabindex="-1">36. What Must Be True for the Strategy to Work?</h2>
+<p>Slide: <code>#/10/0</code></p>
+<ol>
+<li>يجب أن توضح الحوكمة الصلاحيات من خلال Project Charter أو RACI.</li>
+<li>يجب أن تظهر للإدارة هوامش الحزم والتدفق النقدي والطلب الشهري.</li>
+<li>يجب أن يحدد العقد نطاق الخدمة والتعديلات والدفع والقبول.</li>
+<li>لإقناع الدكتور، نوضح أن الاستراتيجية مشروطة بهذه المتطلبات، وقد خصصنا لها مسؤولين ومؤشرات وطوارئ.</li>
+</ol>
+<p><strong>RACI = Responsible, Accountable, Consulted, and Informed: منفذ، مسؤول نهائي، مستشار، ومُبلّغ.</strong></p>
+<h2 id="37.-evidence-limitations-to-disclose" tabindex="-1">37. Evidence Limitations to Disclose</h2>
+<p>Slide: <code>#/10/1</code></p>
+<ol>
+<li>البيانات المالية والتشغيلية داخلية وغير مدققة، وبيانات 2026 تتوقف عند أغسطس.</li>
+<li>درجات المنافسين وBCG وQSPM تشمل حكماً إدارياً منظماً وليست حقائق يقينية كاملة.</li>
+<li>هامش المشروع ليس بالضرورة ربحاً صافياً، كما يحتاج خط أساس الحزم إلى إعادة بناء.</li>
+<li>لإقناع الدكتور، نوضح أن الإفصاح عن القيود يقوي المصداقية ويحدد ما يجب قياسه أثناء التنفيذ.</li>
+</ol>
+<p><strong>BCG = Boston Consulting Group Matrix: مصفوفة مجموعة بوسطن الاستشارية.</strong><br>
+<strong>QSPM = Quantitative Strategic Planning Matrix: مصفوفة التخطيط الاستراتيجي الكمي.</strong></p>
+<h2 id="38.-questions-we-expect" tabindex="-1">38. Questions We Expect</h2>
+<p>Slide: <code>#/10/2</code></p>
+<ol>
+<li>قد يسأل الدكتور لماذا اخترنا تطوير الخدمات قبل التسويق أو التوسع في الخليج.</li>
+<li>الإجابة أن الخدمة المحددة والسعر الواضح والقدرة المقاسة تجعل التسويق والتوسع أقل مخاطرة.</li>
+<li>قد يسأل عن موثوقية QSPM أو قدرة BIM على خلق ميزة، ونوضح أنها أدوات دعم قرار لا بديل عن المراجعة.</li>
+<li>لإقناع الدكتور، نعيد دائماً إلى المنطق نفسه: قيمة سريعة وقليلة رأس المال وقابلة للقياس والتصحيح.</li>
+</ol>
+<p><strong>QSPM = Quantitative Strategic Planning Matrix: مصفوفة التخطيط الاستراتيجي الكمي.</strong></p>
+<h2 id="39.-formalize.-measure.-market.-scale." tabindex="-1">39. Formalize. Measure. Market. Scale.</h2>
+<p>Slide: <code>#/11/0</code></p>
+<ol>
+<li>الخلاصة هي: رسّم الخدمة، قس النتائج، سوّق القيمة، ثم توسع بصورة انتقائية.</li>
+<li>التسلسل يمنع القفز إلى التوسع قبل معرفة تكلفة الخدمة وربحيتها وطلب العملاء.</li>
+<li>أقوى طريق للشركة هو تحويل قدرتها الحالية إلى نظام تشغيل متكرر وقابل للرقابة.</li>
+<li>لإقناع الدكتور، نختم بأن التوصية تجمع بين طموح النمو والانضباط المالي والتشغيلي.</li>
+</ol>
+<h2 id="40.-questions-and-discussion" tabindex="-1">40. Questions and Discussion</h2>
+<p>Slide: <code>#/11/1</code></p>
+<ol>
+<li>نفتح النقاش بسؤال: هل الأولوية لترسيم الخدمة أم لتكثيف التسويق قبل الترسيم؟</li>
+<li>موقفنا هو ترسيم الخدمة أولاً، لأن تسويق خدمة غير محددة يزيد الوعود والضغط التشغيلي.</li>
+<li>بعد تحديد النطاق والسعر والقدرة والمؤشرات، يصبح التسويق أكثر صدقاً وفعالية.</li>
+<li>لإقناع الدكتور، نؤكد أن هذا ليس رفضاً للتسويق، بل ترتيب للخطوات حتى يصبح مولداً لنمو مربح ومستدام.</li>
+</ol>
+
+    </div>
+</body>
+</html>
